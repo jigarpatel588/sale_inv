@@ -8,7 +8,7 @@ models:
       - name: Order_ID
         description: "The primary key for this table"
         tests:
-          # - unique
+          - unique
           # - not_null
 
   - name: view_sales_by_region
@@ -20,11 +20,11 @@ models:
   - name: view_marketing
     description: "Triple check"
     tests:          
-        # - unique
+        - unique
         # - not_null
 
   - name: view_logistica
     description: "Check again"
     tests:          
-        # - unique
+        - unique
         # - not_null
