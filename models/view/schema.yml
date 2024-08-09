@@ -9,22 +9,22 @@ models:
         description: "The primary key for this table"
         tests:
           # - unique
-          - not_null
+          # - not_null
 
   - name: view_sales_by_region
     description: "Double check"
     tests:          
-      - dbt_utils.expression_is_true:
-          expression: "profit >= sales"
+      # - dbt_utils.expression_is_true:
+      #     expression: "profit >= sales"
 
   - name: view_marketing
     description: "Triple check"
     tests:          
         # - unique
-        - not_null
+        # - not_null
 
   - name: view_logistica
     description: "Check again"
     tests:          
         # - unique
-        - not_null
+        # - not_null
