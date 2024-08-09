@@ -23,6 +23,29 @@ jobs:
         python -m pip install --upgrade pip
         pip install dbt-bigquery
 
+    - name: Create profiles.yml
+      run: |
+        mkdir -p ~/.dbt
+        echo "sale_wal:" > ~/.dbt/profiles.yml
+        echo "  target: dev" >> ~/.dbt/profiles.yml
+        echo "  outputs:" >> ~/.dbt/profiles.yml
+        echo "    dev:" >> ~/.dbt/profiles.yml
+        echo "      type: bigquery" >> ~/.dbt/profiles.yml
+        echo "      method: service-account" >> ~/.dbt/profiles.yml
+        echo "      project: superb-reporter-430115-t3" >> ~/.dbt/profiles.yml
+        echo "      dataset: w_sal" >> ~/.dbt/profiles.yml
+        echo "      threads: 4" >> ~/.dbt/profiles.yml
+        echo "      keyfile: /home/runner/work/_temp/service-account-file.json" >> ~/.dbt/profiles.yml
+        echo "      location: US" >> ~/.dbt/profiles.yml
+        echo "      priority: interactive" >> ~/.dbt/profiles.yml
+        echo "      timeout_seconds: 300" >> ~/.dbt/profiles.yml
+
+    - name: Save BigQuery Service Account Key
+      env:
+        BQ_SECRETE: ${{ secrets.BQ_SECRETE }}
+      run: echo "$BQ_SECRETE" > /home/runner/work/_temp/service-account-file.json
+
+
     - name: Run dbt models
       run: |
         dbt run --profiles-dir .
