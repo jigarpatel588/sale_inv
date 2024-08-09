@@ -48,5 +48,5 @@ jobs:
 
     - name: Run dbt models
       run: |
-        dbt run --profiles-dir .
-        dbt test --profiles-dir .
+        dbt run
+        dbt test
