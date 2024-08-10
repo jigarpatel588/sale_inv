@@ -19,12 +19,16 @@ models:
 
   - name: view_marketing
     description: "Triple check"
-    tests:          
-        - unique
-        - not_null
+    columns:
+      - name: Order_ID
+        tests:          
+            - unique
+            - not_null
 
   - name: view_logistica
     description: "Check again"
-    tests:          
-        - unique
-        - not_null
+    columns:
+      - name: Order_ID
+        tests:          
+            - unique
+            - not_null
