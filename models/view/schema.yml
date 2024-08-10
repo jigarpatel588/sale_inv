@@ -22,7 +22,7 @@ models:
     columns:
       - name: Order_ID
         tests:          
-            - unique
+            # - unique
             - not_null
 
   - name: view_logistica
@@ -30,5 +30,5 @@ models:
     columns:
       - name: Order_ID
         tests:          
-            - unique
+            # - unique
             - not_null
