@@ -9,6 +9,7 @@
 */
 {{ config(materialized='view') }}
 
+
 WITH raw_sale AS (
   SELECT
   Order_ID,
